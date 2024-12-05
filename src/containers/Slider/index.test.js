@@ -20,7 +20,7 @@ const data = {
     {
       title: "World Farming Day",
       description: "Evenement mondial autour de la ferme",
-      date: "2022-01-29T20:28:45.744Z",
+      date: "2022-02-29T20:28:45.744Z",
       cover: "/images/evangeline-shaw-nwLTVwb7DbU-unsplash1.png",
     },
   ],
@@ -39,12 +39,10 @@ describe("When slider is created", () => {
     // Attendre que le composant soit rendu et que le premier slide soit actif
     await waitFor(() => {
       const activeSlide = document.querySelector('.SlideCard--display .SlideCard__description');
-      if (activeSlide) {
-        // Vérifier les contenus de l'élément actif
-        expect(activeSlide.querySelector('h3').textContent).toBe("World economic forum");
-        expect(activeSlide.querySelector('p').textContent).toBe("Oeuvre à la coopération entre le secteur public et le privé.");
-        expect(activeSlide.querySelector('div').textContent).toBe("janvier");
-      }
+      // Vérifier les contenus de l'élément actif
+      expect(activeSlide.querySelector('h3').textContent).toBe("World economic forum");
+      expect(activeSlide.querySelector('p').textContent).toBe("Oeuvre à la coopération entre le secteur public et le privé.");
+      expect(activeSlide.querySelector('div').textContent).toBe("janvier");
     });
   });
 });
