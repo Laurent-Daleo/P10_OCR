@@ -13,4 +13,5 @@ export const MONTHS = {
   12: "décembre",
 };
 
-export const getMonth = (date) => MONTHS[date.getMonth()];
+// date.getMonth compte à partir de 0 pour janvier => donc pour correspondre au tableau MONTHS on fais + 1
+export const getMonth = (date) => MONTHS[date.getMonth() + 1];

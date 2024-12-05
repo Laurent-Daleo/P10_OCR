@@ -14,6 +14,7 @@ const EventList = () => {
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
+  // ajout du filtre pour les types sélectionnés
   const filteredEventsByType = type
     ? data?.events.filter((event) => event.type === type)
     : data?.events;
@@ -36,6 +37,10 @@ const EventList = () => {
   };
   const pageNumber = Math.floor((filteredEvents?.length || 0) / PER_PAGE) + 1;
   const typeList = new Set(data?.events.map((event) => event.type));
+
+  // console.log("Data:", data); // log pour vérifier les données
+  // console.log("Filtered Events:", filteredEvents);
+
   return (
     <>
       {error && <div>An error occured</div>}

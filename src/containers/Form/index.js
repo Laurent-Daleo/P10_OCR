@@ -11,11 +11,15 @@ const Form = ({ onSuccess, onError }) => {
   const sendContact = useCallback(
     async (evt) => {
       evt.preventDefault();
-      setSending(true);
+
+      // Todo : Check values
+
       // We try to call mockContactApi
+      setSending(true);
       try {
         await mockContactApi();
         setSending(false);
+        onSuccess(true)
       } catch (err) {
         setSending(false);
         onError(err);

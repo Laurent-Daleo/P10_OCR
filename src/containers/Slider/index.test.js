@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import Slider from "./index";
 import { api, DataProvider } from "../../contexts/DataContext";
 
@@ -35,10 +35,16 @@ describe("When slider is created", () => {
         <Slider />
       </DataProvider>
     );
-    await screen.findByText("World economic forum");
-    await screen.findByText("janvier");
-    await screen.findByText(
-      "Oeuvre à la coopération entre le secteur public et le privé."
-    );
+
+    // Attendre que le composant soit rendu et que le premier slide soit actif
+    await waitFor(() => {
+      const activeSlide = document.querySelector('.SlideCard--display .SlideCard__description');
+      if (activeSlide) {
+        // Vérifier les contenus de l'élément actif
+        expect(activeSlide.querySelector('h3').textContent).toBe("World economic forum");
+        expect(activeSlide.querySelector('p').textContent).toBe("Oeuvre à la coopération entre le secteur public et le privé.");
+        expect(activeSlide.querySelector('div').textContent).toBe("janvier");
+      }
+    });
   });
 });

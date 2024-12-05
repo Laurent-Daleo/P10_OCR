@@ -15,7 +15,8 @@ input {
   height: 60px;
   min-width: 424px;
   font-size: 16px;
-  text-transform: capitalize;
+  // on ne mets pas de lettre majuscule dans le input email
+  // text-transform: capitalize;
   padding-left: 16px;
   border-radius: 4px;
   border: none;
